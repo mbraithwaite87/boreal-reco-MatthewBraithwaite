@@ -1,0 +1,11 @@
+{
+  "min_support": 0.005,
+  "min_confidence": 0.3,
+  "lift_filter": "lift > 1",
+  "mining_date": "2026-11-04",
+  "number_of_rules": 22476,
+  "single_consequent_rules": 10909,
+  "catalogue_products": 98,
+  "recommendable_products": 58,
+  "coverage_percent": 59.18
+}

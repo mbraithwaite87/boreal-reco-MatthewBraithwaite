@@ -1,0 +1,15 @@
+# Boréal Marché — Python dependencies
+# Verified: 2026-11-04
+
+# Data processing
+numpy==2.5.4
+pandas==3.1.0
+
+# Association rule mining
+mlxtend==0.25.0
+
+# Performance benchmarking
+memory-profiler==0.61.0
+
+# Streamlit application
+streamlit==1.66.1

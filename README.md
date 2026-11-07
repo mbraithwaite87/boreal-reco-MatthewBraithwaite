@@ -455,8 +455,6 @@ I used ChatGPT as a classmate and teaching assistant throughout this project. It
 
 ### Final Statement
 
-AI assistance included generated code, technical explanations, debugging support, testing suggestions, and documentation drafts. It was not limited to proofreading.
-
 I reviewed the implementations, ran the experiments, tested the application, and worked to understand the technical decisions and results.
 
 I take responsibility for reviewing the accuracy of my submitted work and for being able to explain and defend its implementation and conclusions.

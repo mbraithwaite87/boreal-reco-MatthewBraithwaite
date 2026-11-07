@@ -150,7 +150,7 @@ The project was developed and tested on Windows using a Python virtual environme
 Clone the repository, once published:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/mbraithwaite87/boreal-reco-MatthewBraithwaite.git
 cd boreal-reco-MatthewBraithwaite
 ```
 
@@ -383,6 +383,27 @@ This section identifies considerations for future development and does not repre
 
 Reference: [Commission d'accès à l'information du Québec — Law 25](https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25)
 
+### Correlation Does Not Mean Causation
+
+One association found in the dataset is:
+
+**Couches → Bière (Diapers → Beer)**
+
+- Support: 3.07%
+- Confidence: 36.56%
+- Lift: 2.43
+
+This is a well-known type of example in retail analytics.
+
+Although diapers and beer appear together more often than expected,
+this does not mean purchasing diapers causes someone to buy beer.
+
+Other factors, such as customer shopping habits or the types of
+households purchasing these products, may contribute to the association.
+
+The model identifies purchasing patterns, not cause-and-effect relationships.
+
+
 ## 9. Future Improvements
 
 Boréal Marché V1 provides a functional recommendation application, but several improvements could make it more useful and production-ready.
@@ -404,4 +425,5 @@ The longer-term goal is to develop Boréal Marché beyond a classroom project in
 
 ---
 
-**Project Status:** V1 functional development and local testing completed. Final repository publication and submission pending.
+**Project Status:** V1 completed, tested, and published on GitHub.
+The application runs locally. Public hosting is planned for a future version.

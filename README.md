@@ -1,11 +1,11 @@
-# 🛒 Boréal Marché — Grocery Recommendation Engine
+# 🛒 Boréal Marché - Grocery Recommendation Engine
 
 **An interactive grocery recommendation application built using Python, Apriori association rules, and Streamlit.**
 
-- **Course:** 420-975-VA — Unsupervised Machine Learning
-- **Program:** AI & Data Science — Vanier College
+- **Course:** 420-975-VA - Unsupervised Machine Learning
+- **Program:** AI & Data Science - Vanier College
 - **Developer:** Matthew Braithwaite
-- **Project Version:** 1.0 — November 2026
+- **Project Version:** 1.0 - November 2026
 
 ---
 
@@ -123,14 +123,14 @@ boreal-reco-MatthewBraithwaite/
 
 **Main components:**
 
-- `01_mining.ipynb` — Data preparation, Apriori experiments, rule evaluation, seasonal analysis, testing, and model export.
-- `recommender.py` — Loads saved rules and generates recommendations.
-- `streamlit_app.py` — Customer-facing application.
-- `rules.json` — Saved association rules used by the application.
-- `metadata.json` — Model configuration, thresholds, and coverage.
-- `product_popularity.json` — Product frequencies used for fallback recommendations.
-- `benchmark.md` — Performance results and model limitations.
-- `manual-regression.md` — Functional and edge-case test documentation.
+- `01_mining.ipynb` - Data preparation, Apriori experiments, rule evaluation, seasonal analysis, testing, and model export.
+- `recommender.py` - Loads saved rules and generates recommendations.
+- `streamlit_app.py` - Customer-facing application.
+- `rules.json` - Saved association rules used by the application.
+- `metadata.json` - Model configuration, thresholds, and coverage.
+- `product_popularity.json` - Product frequencies used for fallback recommendations.
+- `benchmark.md` - Performance results and model limitations.
+- `manual-regression.md` - Functional and edge-case test documentation.
 
 **Apriori does not run when customers interact with the application.** Rules are generated offline and loaded from JSON during application execution.
 
@@ -289,8 +289,8 @@ I also mined association rules separately for summer and winter.
 
 | Season | Filtered Rules |
 |---|---:|
-| Summer — June to August | 52,117 |
-| Winter — December to February | 13,876 |
+| Summer - June to August | 52,117 |
+| Winter - December to February | 13,876 |
 | Rules appearing in both seasonal models | 8,923 |
 
 The results demonstrate that association-rule eligibility and purchasing relationships can vary between seasons.
@@ -381,7 +381,7 @@ Québec's Law 25 establishes additional privacy obligations for organizations us
 
 This section identifies considerations for future development and does not represent a claim of legal compliance.
 
-Reference: [Commission d'accès à l'information du Québec — Law 25](https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25)
+Reference: [Commission d'accès à l'information du Québec - Law 25](https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25)
 
 ### Correlation Does Not Mean Causation
 
@@ -402,6 +402,64 @@ Other factors, such as customer shopping habits or the types of
 households purchasing these products, may contribute to the association.
 
 The model identifies purchasing patterns, not cause-and-effect relationships.
+
+## Engineering Lessons - Mistakes, Corrections & Negative Results
+
+Throughout this project, I encountered unexpected results and a few mistakes that helped me better understand the development process.
+
+Rather than hide these issues, I investigated them, made corrections where needed, and documented what I learned.
+
+### Key Findings and Lessons
+
+**1. High confidence doesn't always mean a good recommendation.**
+
+Reusable shopping bags appeared in approximately 90% of baskets, causing them to dominate the highest-confidence rules. Comparing confidence with lift helped me understand why popular products aren't necessarily useful recommendations. I filtered the final rules using lift greater than 1.
+
+**2. The expected MemoryError wasn't reproduced.**
+
+The assignment warned that Apriori's default settings could run out of memory. I successfully processed the full dataset using `low_memory=True`, but my smaller comparison test succeeded with both settings. I documented this limitation rather than claim a failure I hadn't observed.
+
+**3. Seasonal rules can be misleading.**
+
+One association rule qualified in summer but fell below the support and confidence thresholds in winter. The rule hadn't stopped occurring; it simply no longer met the filtering requirements. This reminded me to investigate the numbers before drawing conclusions.
+
+**4. Streamlit indentation caused a real defect.**
+
+While adding new features, I accidentally placed the recommendation calculation inside the rare-product condition. This caused a `NameError` for certain baskets. I corrected the indentation and reran the affected regression tests.
+
+**5. Similar products aren't necessarily duplicates.**
+
+I identified two similar baguette products but couldn't confirm they represented the same item. I decided not to merge them without sufficient evidence, since doing so could affect the results.
+
+### What I Learned
+
+One of my biggest takeaways is that getting the application working is only part of development.
+
+Understanding unexpected behaviour, checking assumptions, correcting defects, and documenting limitations are just as important.
+
+My QA background definitely influenced my approach, especially when investigating problems and validating the final results.
+
+---
+
+## AI Usage Disclosure
+
+I used ChatGPT as a classmate and teaching assistant throughout this project. It helped me understand course concepts, review my implementation, troubleshoot errors, develop code, and improve my documentation.
+
+| Area | How AI Was Used | My Involvement |
+|---|---|---|
+| **Learning concepts** | Explained Apriori, association rules, support, confidence, lift, and Python techniques. | Asked questions, reviewed examples, and checked my understanding against course materials. |
+| **Coding assistance** | Provided code examples and implementation suggestions for data processing, the recommendation engine, and Streamlit application. | Reviewed, integrated, modified, and tested the code while working through the implementation. |
+| **Debugging** | Helped investigate errors, unexpected results, and application behaviour. | Identified issues, applied corrections, and verified fixes through testing. |
+| **Testing and validation** | Suggested assertions, regression scenarios, and verification approaches. | Executed tests, reviewed results, investigated failures, and confirmed expected behaviour. |
+| **Documentation** | Helped organize, draft, and refine the README, benchmark report, and testing documentation. | Reviewed the content, verified technical details, made changes, and approved the final documents. |
+
+### Final Statement
+
+AI assistance included generated code, technical explanations, debugging support, testing suggestions, and documentation drafts. It was not limited to proofreading.
+
+I reviewed the implementations, ran the experiments, tested the application, and worked to understand the technical decisions and results.
+
+I take responsibility for reviewing the accuracy of my submitted work and for being able to explain and defend its implementation and conclusions.
 
 
 ## 9. Future Improvements

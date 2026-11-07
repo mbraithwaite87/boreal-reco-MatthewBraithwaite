@@ -145,7 +145,7 @@ col_catalogue, col_basket, col_recommendations = st.columns(
 
 
 # ==================================================
-# ZONE 1 — PRODUCT CATALOGUE
+# ZONE 1 - PRODUCT CATALOGUE
 # ==================================================
 
 with col_catalogue:
@@ -244,7 +244,7 @@ with col_catalogue:
 
 
 # ==================================================
-# ZONE 2 — SHOPPING BASKET
+# ZONE 2 - SHOPPING BASKET
 # ==================================================
 
 with col_basket:
@@ -316,7 +316,7 @@ with col_basket:
 
 
 # ==================================================
-# ZONE 3 — PRODUCT RECOMMENDATIONS
+# ZONE 3 - PRODUCT RECOMMENDATIONS
 # ==================================================
 
 with col_recommendations:
@@ -434,7 +434,7 @@ with col_recommendations:
             )
 
         # --------------------------------------------------
-        # Explainability — Rules that fired
+        # Explainability - Rules that fired
         # --------------------------------------------------
 
         # Show the underlying rules even when none qualify for top five
